@@ -21,7 +21,10 @@ def buildIndex():
     """Embed every chunk and store it in a fresh chroma collection. """
     chunks = loadChunks(CHUNKS_FILE)
     model = SentenceTransformer(MODEL_NAME)
-    vectors = model.encode([c["text"] for c in chunks],show_progress_bar=True)
+    # Embed "source > section" + text, so each chunk knows where it comes from.
+    # The stored document stays the original text; only the vector gets the context.
+    texts = [f"{c['source']} > {c['section']}\n{c['text']}" for c in chunks]
+    vectors = model.encode(texts, show_progress_bar=True)
 
     client = chromadb.PersistentClient(path=DB_DIR)           # saved on disk, survives restarts
 
@@ -34,7 +37,7 @@ def buildIndex():
         ids=[c["id"] for c in chunks],
         embeddings=vectors.tolist(),
         documents=[c["text"] for c in chunks],
-        metadatas=[{"source": c["source"], "page": c["page"]} for c in chunks],
+        metadatas=[{"source": c["source"], "page": c["page"],"section": c["section"]} for c in chunks],
     )
     
     print(collection.count(), "chunks indexed")
