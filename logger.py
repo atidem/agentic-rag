@@ -12,7 +12,7 @@ PRICES = {
 #######################################################
 
 
-def saveLog(question, answer, turns, model):
+def saveLog(question, answer, turns, model, toolCalls = None ):
     
     LOG_DIR.mkdir(exist_ok=True)
     totalIn = sum(t["input_tokens"] for t in turns)
@@ -29,6 +29,7 @@ def saveLog(question, answer, turns, model):
         "cost_usd": costUsd,
         "total_duration_sec": totalDuration,
         "turns": turns,
+        "tool_calls": toolCalls or [],
     }
 
     line = json.dumps(log, ensure_ascii=False)
