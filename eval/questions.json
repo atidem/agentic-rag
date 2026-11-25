@@ -1,0 +1,71 @@
+[
+  {"id": "react_vs_cot", "category": "single_doc",
+   "question": "How does ReAct reduce hallucination compared to chain-of-thought?",
+   "expected_pages": [{"source": "react.pdf", "page": 6}],
+   "must_include": ["56%", "14%"], "must_not_include": []},
+
+  {"id": "react_failure_modes", "category": "numbers",
+   "question": "What share of ReAct's failures on HotpotQA were reasoning errors?",
+   "expected_pages": [{"source": "react.pdf", "page": 6}],
+   "must_include": ["47%"], "must_not_include": []},
+
+  {"id": "react_definition", "category": "single_doc",
+   "question": "What is the main idea of ReAct?",
+   "expected_pages": [{"source": "react.pdf", "page": 2}, {"source": "react.pdf", "page": 3}],
+   "must_include": ["reasoning", "action"], "must_not_include": []},
+
+  {"id": "react_prompts", "category": "single_doc",
+   "question": "How are the ReAct prompts constructed?",
+   "expected_pages": [{"source": "react.pdf", "page": 4}],
+   "must_include": ["few-shot"], "must_not_include": []},
+
+  {"id": "react_human_edit", "category": "figure_caption",
+   "question": "In the AlfWorld human-in-the-loop example, what did the human change?",
+   "expected_pages": [{"source": "react.pdf", "page": 15}],
+   "must_include": ["thought"], "must_not_include": []},
+
+  {"id": "rag_retriever", "category": "single_doc",
+   "question": "What is the retriever in RAG?",
+   "expected_pages": [{"source": "rag.pdf", "page": 3}, {"source": "rag.pdf", "page": 2}],
+   "must_include": ["DPR"], "must_not_include": []},
+
+  {"id": "rag_motivation", "category": "single_doc",
+   "question": "What downsides of pre-trained language models does RAG try to address?",
+   "expected_pages": [{"source": "rag.pdf", "page": 1}],
+   "must_include": ["hallucination"], "must_not_include": []},
+
+  {"id": "toolformer_tools", "category": "single_doc",
+   "question": "Which tools does Toolformer use?",
+   "expected_pages": [{"source": "toolformer.pdf", "page": 1}],
+   "must_include": ["calculator", "calendar"], "must_not_include": []},
+
+  {"id": "toolformer_filtering", "category": "formula_heavy",
+   "question": "How does Toolformer decide which API calls to keep for training?",
+   "expected_pages": [{"source": "toolformer.pdf", "page": 3}],
+   "must_include": ["loss"], "must_not_include": []},
+
+  {"id": "toolformer_zero_shot", "category": "single_doc",
+   "question": "In what setting is Toolformer evaluated on downstream tasks?",
+   "expected_pages": [{"source": "toolformer.pdf", "page": 4}, {"source": "toolformer.pdf", "page": 5}],
+   "must_include": ["zero-shot"], "must_not_include": []},
+
+  {"id": "compare_react_toolformer", "category": "multi_doc",
+   "question": "What do ReAct and Toolformer have in common, and how do they differ?",
+   "expected_pages": [{"source": "react.pdf", "page": 2}, {"source": "toolformer.pdf", "page": 1}],
+   "must_include": ["react.pdf", "toolformer.pdf"], "must_not_include": []},
+
+  {"id": "hallucination_concept", "category": "borderline",
+   "question": "What is hallucination?",
+   "expected_pages": [{"source": "react.pdf", "page": 6}, {"source": "rag.pdf", "page": 1}],
+   "must_include": ["(react.pdf"], "must_not_include": []},
+
+  {"id": "out_of_scope", "category": "no_search",
+   "question": "What is the best pizza in Naples?",
+   "expected_pages": [],
+   "must_include": [], "must_not_include": ["(react.pdf", "(rag.pdf", "(toolformer.pdf"]},
+
+  {"id": "greeting", "category": "no_search",
+   "question": "Hello!",
+   "expected_pages": [],
+   "must_include": [], "must_not_include": ["(react.pdf"]}
+]

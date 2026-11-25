@@ -3,3 +3,4 @@
 logs/
 __pycache__/
 chroma_db/
+eval/results/
