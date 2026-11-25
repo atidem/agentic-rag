@@ -1,6 +1,6 @@
 # Agentic RAG over Research Papers
 
-A question-answering agent over three research papers (ReAct, RAG, Toolformer). Retrieval is a tool the agent decides when to use: it writes its own search queries, searches again when results are not enough, and answers with page-level citations. The agent loop is the hand-written one from my [tool-calling agent](../tool-calling-agent) project; this project adds the retrieval side.
+A question-answering agent over three research papers (ReAct, RAG, Toolformer). Retrieval is a tool the agent decides when to use: it writes its own search queries, searches again when results are not enough, and answers with page-level citations. The agent loop is the hand-written one from my [tool-calling agent](https://github.com/atidem/tool-calling-agent) project; this project adds the retrieval side.
 
 ## How it works
 
